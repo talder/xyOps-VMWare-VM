@@ -128,16 +128,16 @@ The vCenter user account must have sufficient permissions to perform the request
 | **Selected action** | dropdown | Yes | - | Choose the operation to perform (see [Available Actions](#available-actions)) |
 | **Date input** | text | Conditional* | - | Required for "Remove snapshots before date" action. Accepts multiple formats: `yyyy-MM-dd`, `yyyy-MM-dd HH:mm:ss`, `MM/dd/yyyy`, `dd/MM/yyyy`, `yyyy/MM/dd` |
 | **Number of weeks** | number | Conditional** | - | Required for "Remove snapshots before number of weeks" action. Positive integer (e.g., `4` removes snapshots older than 4 weeks) |
-|| **Snapshot removal exception** | text | No | `VEEAM` | Comma-separated list of keywords to match in snapshot names/descriptions that should NOT be removed. Case-insensitive. Use `VEEAM,BACKUP,PROD` for multiple keywords. Leave empty to disable protection (⚠️ use with caution!) |
-|| **VM name** | text | Conditional*** | - | Required for "Create VM snapshot" action. Comma-separated list of VM names (e.g., `VM1,VM2,VM3`). All VMs receive the same snapshot name with unique identifier |
-|| **Snapshot name** | text | Conditional****/No | Auto-generated | Required for "Remove snapshots containing specific text" action (search text for snapshot names). For "Create VM snapshot" action: Optional - if empty, auto-generates `xyOps-VMware-VM-{timestamp}`. Unique identifiers are appended if selected |
-|| **Snapshot description** | textarea | No | Auto-generated | Optional snapshot description. If empty, auto-generates based on unique identifier selection. Custom descriptions override auto-generation |
-|| **Include VM memory in snapshot** | checkbox | No | `true` | Include VM memory state in snapshot (allows reverting to exact running state). Set to false for quicker snapshots without memory |
-|| **Use unique snapshot identifier** | dropdown | No | `No` | Append unique identifier to snapshot name: `No`, `Unique short UID` (8-char GUID), or `Timestamp` (yyyyMMddHHmmss) |
-|| **Check for VCF.PowerCLI update** | checkbox | No | `false` | **⚠️ WARNING**: Checks PowerShell Gallery for VCF.PowerCLI updates on **every run** (~10-15s delay). Leave **unchecked** for normal operations. Enable occasionally (e.g., monthly) or use a separate scheduled job with "List VMs" action |
-|| **Export format** | dropdown | No | `JSON` | Output format: `JSON`, `CSV`, `MD` (Markdown), or `HTML` |
-|| **Export to file** | checkbox | No | `false` | Also export the output to a timestamped file in addition to job output |
-|| **Enable debug mode** | checkbox | No | `false` | Write the JSON parameters to the job output for troubleshooting |
+| **Snapshot removal exception** | text | No | `VEEAM` | Comma-separated list of keywords to match in snapshot names/descriptions that should NOT be removed. Case-insensitive. Use `VEEAM,BACKUP,PROD` for multiple keywords. Leave empty to disable protection (⚠️ use with caution!) |
+| **VM name** | text | Conditional*** | - | Required for "Create VM snapshot" action. Comma-separated list of VM names (e.g., `VM1,VM2,VM3`). All VMs receive the same snapshot name with unique identifier |
+| **Snapshot name** | text | Conditional****/No | Auto-generated | Required for "Remove snapshots containing specific text" action (search text for snapshot names). For "Create VM snapshot" action: Optional - if empty, auto-generates `xyOps-VMware-VM-{timestamp}`. Unique identifiers are appended if selected |
+| **Snapshot description** | textarea | No | Auto-generated | Optional snapshot description. If empty, auto-generates based on unique identifier selection. Custom descriptions override auto-generation |
+| **Include VM memory in snapshot** | checkbox | No | `true` | Include VM memory state in snapshot (allows reverting to exact running state). Set to false for quicker snapshots without memory |
+| **Use unique snapshot identifier** | dropdown | No | `No` | Append unique identifier to snapshot name: `No`, `Unique short UID` (8-char GUID), or `Timestamp` (yyyyMMddHHmmss) |
+| **Check for VCF.PowerCLI update** | checkbox | No | `false` | **⚠️ WARNING**: Checks PowerShell Gallery for VCF.PowerCLI updates on **every run** (~10-15s delay). Leave **unchecked** for normal operations. Enable occasionally (e.g., monthly) or use a separate scheduled job with "List VMs" action |
+| **Export format** | dropdown | No | `JSON` | Output format: `JSON`, `CSV`, `MD` (Markdown), or `HTML` |
+| **Export to file** | checkbox | No | `false` | Also export the output to a timestamped file in addition to job output |
+| **Enable debug mode** | checkbox | No | `false` | Write the JSON parameters to the job output for troubleshooting |
 
 \* Required only when "Remove snapshots before date" action is selected  
 \** Required only when "Remove snapshots before number of weeks" action is selected  
