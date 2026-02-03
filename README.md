@@ -1,7 +1,7 @@
 
 
 <p align="center"><img src="https://raw.githubusercontent.com/talder/xyOps-VMware-VM/refs/heads/main/logo.png" height="108" alt="Logo"/></p>
-<h1 align="center">VMware VM plugin</h1>
+<h1 align="center">VMware VM Operations</h1>
 
 # xyOps VMware VM Operations Plugin
 
