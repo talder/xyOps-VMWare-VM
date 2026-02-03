@@ -634,7 +634,7 @@ Disable "Check for VCF.PowerCLI update" parameter (should be unchecked by defaul
 ## Links
 
 - [VMware PowerCLI Documentation](https://developer.vmware.com/powercli)
-- [VCF PowerCLI Module](https://www.powershellgallery.com/packages/VMware.PowerCLI)
+- [VCF PowerCLI Module]([https://www.powershellgallery.com/packages/VMware.PowerCLI](https://developer.broadcom.com/powercli/installation-guide))
 - [PowerShell Installation](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell)
 - [vCenter Server Documentation](https://docs.vmware.com/en/VMware-vSphere/index.html)
 - [xyOps Secrets Documentation](https://github.com/pixlcore/xyops/blob/main/docs/secrets.md)
