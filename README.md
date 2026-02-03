@@ -1,9 +1,9 @@
 
 
-<p align="center"><img src="https://raw.githubusercontent.com/talder/xyOps-VMWare-VM/refs/heads/main/logo.png" height="108" alt="Logo"/></p>
-<h1 align="center">VMWare VM plugin</h1>
+<p align="center"><img src="https://raw.githubusercontent.com/talder/xyOps-VMware-VM/refs/heads/main/logo.png" height="108" alt="Logo"/></p>
+<h1 align="center">VMware VM plugin</h1>
 
-# xyOps VMWare VM Operations Plugin
+# xyOps VMware VM Operations Plugin
 
 A comprehensive VMware vCenter management plugin for xyOps that provides VM inventory, monitoring, and automated snapshot lifecycle management. Built with PowerShell and [VCF PowerCLI](https://developer.vmware.com/powercli), this plugin enables safe, automated operations across your VMware infrastructure with built-in protection for critical backup snapshots.
 
@@ -130,7 +130,7 @@ The vCenter user account must have sufficient permissions to perform the request
 | **Number of weeks** | number | Conditional** | - | Required for "Remove snapshots before number of weeks" action. Positive integer (e.g., `4` removes snapshots older than 4 weeks) |
 || **Snapshot removal exception** | text | No | `VEEAM` | Comma-separated list of keywords to match in snapshot names/descriptions that should NOT be removed. Case-insensitive. Use `VEEAM,BACKUP,PROD` for multiple keywords. Leave empty to disable protection (⚠️ use with caution!) |
 || **VM name** | text | Conditional*** | - | Required for "Create VM snapshot" action. Comma-separated list of VM names (e.g., `VM1,VM2,VM3`). All VMs receive the same snapshot name with unique identifier |
-|| **Snapshot name** | text | Conditional****/No | Auto-generated | Required for "Remove snapshots containing specific text" action (search text for snapshot names). For "Create VM snapshot" action: Optional - if empty, auto-generates `xyOps-VMWare-VM-{timestamp}`. Unique identifiers are appended if selected |
+|| **Snapshot name** | text | Conditional****/No | Auto-generated | Required for "Remove snapshots containing specific text" action (search text for snapshot names). For "Create VM snapshot" action: Optional - if empty, auto-generates `xyOps-VMware-VM-{timestamp}`. Unique identifiers are appended if selected |
 || **Snapshot description** | textarea | No | Auto-generated | Optional snapshot description. If empty, auto-generates based on unique identifier selection. Custom descriptions override auto-generation |
 || **Include VM memory in snapshot** | checkbox | No | `true` | Include VM memory state in snapshot (allows reverting to exact running state). Set to false for quicker snapshots without memory |
 || **Use unique snapshot identifier** | dropdown | No | `No` | Append unique identifier to snapshot name: `No`, `Unique short UID` (8-char GUID), or `Timestamp` (yyyyMMddHHmmss) |
@@ -284,13 +284,13 @@ Creates snapshots for one or more virtual machines with optional unique identifi
 **Required Parameter**: `vmname` - Comma-separated list of VM names (e.g., `VM1,VM2,VM3`)
 
 **Optional Parameters**:
-- `snapshotname` - Custom snapshot name (default: auto-generated `xyOps-VMWare-VM-{timestamp}`)
+- `snapshotname` - Custom snapshot name (default: auto-generated `xyOps-VMware-VM-{timestamp}`)
 - `snapshotdescription` - Custom description (default: auto-generated based on unique identifier setting)
 - `snapshotmemory` - Include VM memory state (default: `true`)
 - `snapshotunique` - Append unique identifier: `No`, `Unique short UID` (8-char GUID), or `Timestamp`
 
 **Snapshot Naming Logic**:
-1. **Base Name**: If `snapshotname` is empty, generates `xyOps-VMWare-VM-{timestamp}`. Otherwise uses provided name.
+1. **Base Name**: If `snapshotname` is empty, generates `xyOps-VMware-VM-{timestamp}`. Otherwise uses provided name.
 2. **Unique Identifier**: If `snapshotunique` is set:
    - `Unique short UID`: Appends `-{8-char-GUID}` (e.g., `MySnapshot-a3f9b2c8`)
    - `Timestamp`: Appends `-{yyyyMMddHHmmss}` (e.g., `MySnapshot-20260202173045`)
@@ -305,8 +305,8 @@ When creating snapshots for multiple VMs with the same unique identifier, you ca
 
 **Description Logic**:
 - If `snapshotdescription` is provided: Uses custom description
-- If `snapshotdescription` is empty AND unique identifier is used: "xyOps-VMWare-VM added a custom snapshot with a unique identifier"
-- If `snapshotdescription` is empty AND no unique identifier: "xyOps-VMWare-VM snapshot"
+- If `snapshotdescription` is empty AND unique identifier is used: "xyOps-VMware-VM added a custom snapshot with a unique identifier"
+- If `snapshotdescription` is empty AND no unique identifier: "xyOps-VMware-VM snapshot"
 
 **Output Sections**:
 - **Successfully Created Snapshots**: List with VM name, snapshot name, description, created time, size, and memory indicator (✓/✗)

@@ -1,5 +1,5 @@
-# xyOps VMWare VM Operations Plugin - PowerShell Version
-# Manages VMWare virtual machines using VMware PowerCLI
+# xyOps VMware VM Operations Plugin - PowerShell Version
+# Manages VMware virtual machines using VMware PowerCLI
 
 function Write-Output-JSON {
     param($Object)
@@ -449,7 +449,7 @@ try {
             # Generate base snapshot name if not provided
             $baseSnapshotName = if ([string]::IsNullOrWhiteSpace($snapshotName)) {
                 $timestamp = Get-Date -Format "yyyyMMddHHmmss"
-                "xyOps-VMWare-VM-$timestamp"
+                "xyOps-VMware-VM-$timestamp"
             } else {
                 $snapshotName
             }
@@ -474,9 +474,9 @@ try {
             # Determine snapshot description
             $finalDescription = if ([string]::IsNullOrWhiteSpace($snapshotDescription)) {
                 if ($uniqueIdentifier -ne "") {
-                    "xyOps-VMWare-VM added a custom snapshot with a unique identifier"
+                    "xyOps-VMware-VM added a custom snapshot with a unique identifier"
                 } else {
-                    "xyOps-VMWare-VM snapshot"
+                    "xyOps-VMware-VM snapshot"
                 }
             } else {
                 $snapshotDescription
@@ -945,7 +945,7 @@ try {
     
     # Build Markdown output for display in xyOps GUI
     Write-Host "Building Markdown output for display..."
-    $markdownContent = "# VMWare VM Operations Report`n`n"
+    $markdownContent = "# VMware VM Operations Report`n`n"
     $markdownContent += "## Operation Details`n`n"
     $markdownContent += "| Property | Value |`n"
     $markdownContent += "|----------|-------|`n"
@@ -1238,7 +1238,7 @@ try {
     Write-Output-JSON @{
         xy = 1
         markdown = @{
-            title = "VMWare VM Operations Report"
+            title = "VMware VM Operations Report"
             content = $markdownContent
             caption = $caption
         }
@@ -1398,7 +1398,7 @@ try {
         
         "MD" {
             # Build Markdown output
-            $markdownContent = "# VMWare VM Operations Report`n`n"
+            $markdownContent = "# VMware VM Operations Report`n`n"
             $markdownContent += "## Operation Details`n`n"
             $markdownContent += "| Property | Value |`n"
             $markdownContent += "|----------|-------|`n"
@@ -1637,7 +1637,7 @@ try {
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>VMWare VM Operations Report</title>
+    <title>VMware VM Operations Report</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 20px; background-color: #f5f5f5; }
         h1 { color: #333; border-bottom: 3px solid #0078d4; padding-bottom: 10px; }
@@ -1653,7 +1653,7 @@ try {
     </style>
 </head>
 <body>
-    <h1>VMWare VM Operations Report</h1>
+    <h1>VMware VM Operations Report</h1>
     
     <h2>Operation Details</h2>
     <table class="info-table">
